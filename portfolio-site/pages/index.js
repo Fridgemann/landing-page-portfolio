@@ -1,6 +1,21 @@
 import LogoTilt from '@/public/logo-tilt.jsx';
 import { Typewriter } from 'react-simple-typewriter';
 
+
+import { motion } from 'framer-motion'
+
+const cardVariants = {
+  hidden: { opacity: 0 },
+  visible: (i) => ({
+    opacity: 1,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.6,
+      ease: 'easeIn',
+    },
+  }),
+}
+
 const Header = () => {
   return (
   <div className='sticky top-0 z-50 bg-black bg-opacity-80 backdrop-blur-md'>
@@ -73,6 +88,21 @@ const Hero = () => {
 }
 
 const AboutMe = () => {
+  const cards = [
+    {
+      title: '🧠 Always Learning',
+      desc: 'I dive deep, experiment often, and value continuous self-improvement in everything I build.',
+    },
+    {
+      title: '🧩 Minimalist Mindset',
+      desc: 'Clarity through simplicity — I craft experiences that are clean, functional, and focused.',
+    },
+    {
+      title: '🚀 Purposeful Projects',
+      desc: 'I build with intent — every feature should matter, every interaction should feel right.',
+    },
+  ]
+
   return (
     <section id="about" className="w-full px-4 py-20 md:py-32 bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white">
       <div className="max-w-6xl mx-auto">
@@ -84,18 +114,23 @@ const AboutMe = () => {
         </p>
 
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          <div className="bg-gray-800/60 backdrop-blur-lg p-6 rounded-2xl border border-gray-700 hover:shadow-xl transition-all duration-300">
-            <h3 className="text-xl font-semibold text-purple-300 mb-2">🧠 Always Learning</h3>
-            <p className="text-gray-300">I dive deep, experiment often, and value continuous self-improvement in everything I build.</p>
-          </div>
-          <div className="bg-gray-800/60 backdrop-blur-lg p-6 rounded-2xl border border-gray-700 hover:shadow-xl transition-all duration-300">
-            <h3 className="text-xl font-semibold text-purple-300 mb-2">🧩 Minimalist Mindset</h3>
-            <p className="text-gray-300">Clarity through simplicity — I craft experiences that are clean, functional, and focused.</p>
-          </div>
-          <div className="bg-gray-800/60 backdrop-blur-lg p-6 rounded-2xl border border-gray-700 hover:shadow-xl transition-all duration-300">
-            <h3 className="text-xl font-semibold text-purple-300 mb-2">🚀 Purposeful Projects</h3>
-            <p className="text-gray-300">I build with intent — every feature should matter, every interaction should feel right.</p>
-          </div>
+          {cards.map((card, i) => (
+            <motion.div
+              key={i}
+              custom={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={cardVariants}
+              whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(128, 90, 213, 0.4)' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              className="bg-gray-800/60 backdrop-blur-lg p-6 rounded-2xl border border-gray-700"
+            >
+
+              <h3 className="text-xl font-semibold text-purple-300 mb-2">{card.title}</h3>
+              <p className="text-gray-300">{card.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
