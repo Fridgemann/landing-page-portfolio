@@ -1,15 +1,15 @@
+import Logo from '@/public/logo-as-component.jsx';
+
 const Header = () => {
   return (
-    <div className="flex p-2.5 justify-between border bg-black">
+    <div className="flex p-3 justify-between border bg-black">
       <div className="gap-2.5 flex items-center">
-        
-        <div className="flex flex-col justify-start text-3xl font-bold text-white">
+        <div className="bg-gradient-to-r from-purple-500 via-red-300 to-purple-500 bg-clip-text text-transparent text-xl px-0.5 py-1.5 font-bol sm:text-2xl md:3xl">
           Emre Atasavun
-          <p className="text-xl">Fullstack Developer</p>
         </div>
       </div>
 
-      <ul className="text-white flex gap-2.5 items-center">
+      <ul className="hidden md:flex text-white gap-2.5 items-center">
         <div
           className="group p-[2px] rounded-2xl bg-gradient-to-r from-purple-600 via-purple-400 to-black transition-all duration-500"
           style={{
@@ -44,10 +44,13 @@ const Header = () => {
   )
 }
 
+const Hero = () => {}
+
+
 export default function Home() {
   return (
     <div>
-      <Header />
+      <Header className='sticky top-0 z-50 bg-black bg-opacity-80 backdrop-blur-md px-6 py-4'/>
     </div>
   )
 }
