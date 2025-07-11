@@ -40,21 +40,6 @@ const Header = () => {
             Who am I?
           </li>
         </div>
-
-        <div
-          className="group p-[2px] rounded-2xl bg-gradient-to-r from-purple-600 via-purple-400 to-black transition-all duration-500"
-          style={{
-            backgroundSize: '200% 200%',
-            backgroundPosition: '0% 50%',
-          }}
-          onMouseEnter={e => (e.currentTarget.style.backgroundPosition = '100% 50%')}
-          onMouseLeave={e => (e.currentTarget.style.backgroundPosition = '0% 50%')}
-        >
-          <li onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })} className="text-xl bg-black text-white rounded-2xl px-4 py-2 flex justify-center items-center w-full h-full hover:cursor-pointer">
-            Contact me!
-          </li>
-        </div>
-
       </ul>
 
     </div>
