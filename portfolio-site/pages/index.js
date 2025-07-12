@@ -1,6 +1,7 @@
 import LogoTilt from '@/public/logo-tilt.jsx';
 import { Typewriter } from 'react-simple-typewriter';
 import { AuroraBackground } from '@/components/ui/aurora-background';
+import { TechStack } from '@/components/tech-stack';
 
 
 import { motion } from 'framer-motion'
@@ -92,7 +93,7 @@ const AboutMe = () => {
   ]
 
   return (
-    <section id="about" className="w-full px-4 py-20 md:py-32 bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white">
+    <section id="about" className="w-full px-4 py-20 md:py-32 text-white">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-bold mb-10 text-center text-purple-400 font-michroma">About Me</h2>
 
@@ -127,7 +128,7 @@ const AboutMe = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="w-full px-4 py-20 md:py-32 bg-gradient-to-b from-black via-gray-950 to-gray-900 text-white">
+    <section id="contact" className="w-full px-4 py-20 md:py-32 text-white">
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="font-michroma text-3xl md:text-5xl font-bold text-purple-400 mb-6">Let's get to it!</h2>
 
@@ -198,8 +199,11 @@ export default function Home() {
     <div>
       <Header />
       <Hero />
-      <AboutMe />
-      <Contact />
+      <div className='bg-gradient-to-b from-gray-800 via-gray-900 to-black'>
+        <AboutMe />
+        <TechStack />
+        <Contact />
+      </div>
     </div>
   )
 }
