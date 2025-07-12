@@ -111,7 +111,7 @@ const AboutMe = () => {
         <h2 className="text-3xl md:text-5xl font-bold mb-10 text-center text-purple-400 font-michroma">About Me</h2>
 
         <p className="text-lg md:text-xl leading-relaxed text-gray-300 text-center max-w-3xl mx-auto mb-12 font-turret">
-          I'm a <span className="text-purple-400 font-semibold">full-stack developer</span> who believes in simplicity, clarity, and steady progress.
+          I&apos;m a <span className="text-purple-400 font-semibold">full-stack developer</span> who believes in simplicity, clarity, and steady progress.
           Every project is an opportunity to learn, iterate, and grow.
         </p>
 
@@ -143,10 +143,9 @@ const Contact = () => {
   return (
     <section id="contact" className="w-full px-4 py-20 md:py-32 text-white">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="font-michroma text-3xl md:text-5xl font-bold text-purple-400 mb-6">Let's get to it!</h2>
-
+        <h2 className="font-michroma text-3xl md:text-5xl font-bold text-purple-400 mb-6">Let&apos;s get to it!</h2>
         <p className="font-turret text-xl text-gray-300 mb-10">
-          A project, a question or a simple hello? I'm always open to new experiences and connections.
+          A project, a question or a simple hello? I&apos;m always open to new experiences and connections.
         </p>
 
         <div className="flex justify-center gap-6 flex-wrap">
