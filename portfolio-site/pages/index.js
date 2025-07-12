@@ -52,8 +52,8 @@ const Hero = () => {
   return (
     <AuroraBackground>
     <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 text-purple-600 font-michroma">
-      <LogoTilt className="w-25 h-25 mb-4 text-purple-400" />
-      <h1 className="text-4xl md:text-6xl font-bold text-white">
+      <LogoTilt className="w-25 h-25 text-purple-400" />
+      <h1 className="text-4xl md:text-6xl font-bold text-white mt-5">
         Emre Atasavun
       </h1>
       <div className="text-center mt-20">
@@ -78,16 +78,16 @@ const Hero = () => {
 const AboutMe = () => {
   const cards = [
     {
-      title: '🧠 Always Learning',
-      desc: 'I dive deep, experiment often, and value continuous self-improvement in everything I build.',
+      title: 'Learning',
+      desc: 'The only constant to me, is the state of learning. Always striving to improve, to understand more, and to create better.',
     },
     {
-      title: '🧩 Minimalist Mindset',
-      desc: 'Clarity through simplicity — I craft experiences that are clean, functional, and focused.',
+      title: 'Minimalism',
+      desc: 'I believe in solutions that are refined, elegant and do the most with the least complexity. Simplicity is key.',
     },
     {
-      title: '🚀 Purposeful Projects',
-      desc: 'I build with intent — every feature should matter, every interaction should feel right.',
+      title: 'Meaningful Design',
+      desc: 'Design should not just be about aesthetics, but about creating a meaningful experience. Every pixel has a purpose.',
     },
   ]
 
@@ -115,7 +115,7 @@ const AboutMe = () => {
               className="bg-gray-800/60 backdrop-blur-lg p-6 rounded-2xl border border-gray-700"
             >
 
-              <h3 className="font-michroma text-xl font-semibold text-purple-300 mb-2">{card.title}</h3>
+              <h3 className="font-michroma text-xl font-semibold text-purple-500 mb-2">{card.title}</h3>
               <p className="font-turret text-xl text-gray-300">{card.desc}</p>
             </motion.div>
           ))}
@@ -129,10 +129,10 @@ const Contact = () => {
   return (
     <section id="contact" className="w-full px-4 py-20 md:py-32 bg-gradient-to-b from-black via-gray-950 to-gray-900 text-white">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="font-michroma text-3xl md:text-5xl font-bold text-purple-400 mb-6">Let's Connect</h2>
+        <h2 className="font-michroma text-3xl md:text-5xl font-bold text-purple-400 mb-6">Let's get to it!</h2>
 
         <p className="font-turret text-xl text-gray-300 mb-10">
-          Whether it's about a project, a question, or just a hello — I'm always open to a good conversation.
+          A project, a question or a simple hello? I'm always open to new experiences and connections.
         </p>
 
         <div className="flex justify-center gap-6 flex-wrap">
