@@ -19,17 +19,17 @@ const cardVariants = {
 
 const Header = () => {
   return (
-  <div className='sticky top-0 z-50 bg-black bg-opacity-80 backdrop-blur-md'>
+  <div className='sticky top-0 z-50 bg-black bg-opacity-80 backdrop-blur-md font-michroma'>
     <div className="flex p-4 justify-between bg-black">
       <div className="gap-2.5 flex items-center">
-        <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="bg-gradient-to-r from-purple-500 via-orange-300 to-purple-500 bg-clip-text text-transparent text-xl px-0.5 py-1.5 font-bol sm:text-2xl md:3xl hover:cursor-pointer">
+        <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="bg-gradient-to-r from-purple-500 via-blue-500 to-purple-300 bg-clip-text text-transparent text-xl px-0.5 py-1.5 font-bol sm:text-2xl md:3xl hover:cursor-pointer">
           Emre Atasavun
         </div>
       </div>
 
       <ul className="hidden md:flex text-white gap-2.5 items-center">
         <div
-          className="group p-[2px] rounded-2xl bg-gradient-to-r from-purple-600 via-purple-400 to-black transition-all duration-500"
+          className="group p-[2px] rounded-2xl bg-gradient-to-r from-purple-600 via-purple-400 to-blue-500 transition-all duration-500"
           style={{
             backgroundSize: '200% 200%',
             backgroundPosition: '0% 50%',
@@ -51,7 +51,7 @@ const Header = () => {
 const Hero = () => {
   return (
     <AuroraBackground>
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4">
+    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 text-purple-600 font-michroma">
       <LogoTilt className="w-25 h-25 mb-4 text-purple-400" />
       <h1 className="text-4xl md:text-6xl font-bold text-white">
         Emre Atasavun
@@ -94,9 +94,9 @@ const AboutMe = () => {
   return (
     <section id="about" className="w-full px-4 py-20 md:py-32 bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold mb-10 text-center text-purple-400">About Me</h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-10 text-center text-purple-400 font-michroma">About Me</h2>
 
-        <p className="text-lg md:text-xl leading-relaxed text-gray-300 text-center max-w-3xl mx-auto mb-12">
+        <p className="text-lg md:text-xl leading-relaxed text-gray-300 text-center max-w-3xl mx-auto mb-12 font-turret">
           I'm a <span className="text-purple-400 font-semibold">full-stack developer</span> who believes in simplicity, clarity, and steady progress.
           Every project is an opportunity to learn, iterate, and grow.
         </p>
@@ -115,8 +115,8 @@ const AboutMe = () => {
               className="bg-gray-800/60 backdrop-blur-lg p-6 rounded-2xl border border-gray-700"
             >
 
-              <h3 className="text-xl font-semibold text-purple-300 mb-2">{card.title}</h3>
-              <p className="text-gray-300">{card.desc}</p>
+              <h3 className="font-michroma text-xl font-semibold text-purple-300 mb-2">{card.title}</h3>
+              <p className="font-turret text-xl text-gray-300">{card.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -129,9 +129,9 @@ const Contact = () => {
   return (
     <section id="contact" className="w-full px-4 py-20 md:py-32 bg-gradient-to-b from-black via-gray-950 to-gray-900 text-white">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-3xl md:text-5xl font-bold text-purple-400 mb-6">Let's Connect</h2>
+        <h2 className="font-michroma text-3xl md:text-5xl font-bold text-purple-400 mb-6">Let's Connect</h2>
 
-        <p className="text-lg text-gray-300 mb-10">
+        <p className="font-turret text-xl text-gray-300 mb-10">
           Whether it's about a project, a question, or just a hello — I'm always open to a good conversation.
         </p>
 

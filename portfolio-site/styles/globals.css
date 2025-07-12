@@ -121,7 +121,7 @@
 
 
 @theme inline {
-  --animate-aurora: aurora 60s linear infinite;
+  --animate-aurora: aurora 45s linear infinite;
   @keyframes aurora {
     from {
       background-position:
@@ -134,4 +134,23 @@
         350% 50%;
     }
   }
+}
+
+@font-face {
+  font-family: 'Michroma';
+  font-style: normal;
+  font-weight: 400;
+  src: url('@/public/fonts/Michroma-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Turretroad';
+  font-style: normal;
+  font-weight: 400;
+  src: url('@/public/fonts/turretRoad/TurretRoad-Regular.ttf') format('truetype');
+}
+
+@theme {
+  --font-michroma: 'Michroma', sans-serif;
+  --font-turret: 'Turretroad', sans-serif;
 }
