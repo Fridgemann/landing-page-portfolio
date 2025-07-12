@@ -15,8 +15,8 @@ export const TechStack = () => {
   return (
     <section className="w-full px-4 py-20 md:py-3 text-white">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-5xl font-bold mb-10 text-purple-400">Tech Stack</h2>
-        <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12">
+        <h2 className="text-3xl md:text-5xl font-bold mb-10 text-purple-400 font-michroma">Tech Stack</h2>
+        <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 font-turret">
           I use a modern and efficient stack to build fast, scalable, and maintainable applications.
         </p>
 
@@ -27,7 +27,7 @@ export const TechStack = () => {
               className="bg-gray-800/60 backdrop-blur-lg p-6 rounded-2xl border border-gray-700 flex flex-col items-center justify-center gap-4 hover:shadow-xl transition-all duration-300"
             >
               <img src={tech.icon} alt={tech.name} className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14" />
-              <p className="text-sm sm:text-base">{tech.name}</p>
+              <p className="font-michroma text-sm sm:text-base">{tech.name}</p>
             </div>
           ))}
         </div>
