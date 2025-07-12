@@ -73,7 +73,7 @@ const Hero = () => {
       <div className="text-center mt-20">
         <h1 className="text-4xl md:text-6xl font-bold text-purple-500">
           <Typewriter
-            words={['Aspiring Fullstack Developer.', 'In the pursuit of constant improvement.']}
+            words={['Aspiring Fullstack Developer.', 'In the pursuit of greatness.']}
             loop={true}
             cursor
             cursorStyle="|"
@@ -212,6 +212,7 @@ export default function Home() {
     <div>
       <Header />
       <Hero />
+      <div className="h-1 w-full bg-gradient-to-r from-purple-600 via-purple-800 to-purple-600 blur-sm"></div>
       <div className='bg-gradient-to-b from-gray-800 via-gray-900 to-black'>
         <AboutMe />
         <TechStack />
