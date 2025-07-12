@@ -1,5 +1,6 @@
 import LogoTilt from '@/public/logo-tilt.jsx';
 import { Typewriter } from 'react-simple-typewriter';
+import { AuroraBackground } from '@/components/ui/aurora-background';
 
 
 import { motion } from 'framer-motion'
@@ -19,7 +20,7 @@ const cardVariants = {
 const Header = () => {
   return (
   <div className='sticky top-0 z-50 bg-black bg-opacity-80 backdrop-blur-md'>
-    <div className="flex p-3 justify-between border bg-black">
+    <div className="flex p-4 justify-between bg-black">
       <div className="gap-2.5 flex items-center">
         <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="bg-gradient-to-r from-purple-500 via-orange-300 to-purple-500 bg-clip-text text-transparent text-xl px-0.5 py-1.5 font-bol sm:text-2xl md:3xl hover:cursor-pointer">
           Emre Atasavun
@@ -49,13 +50,14 @@ const Header = () => {
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-b from-purple-900 to-gray-900">
+    <AuroraBackground>
+    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4">
       <LogoTilt className="w-25 h-25 mb-4 text-purple-400" />
-      <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-500 via-orange-300 to-purple-500 bg-clip-text text-transparent">
+      <h1 className="text-4xl md:text-6xl font-bold text-white">
         Emre Atasavun
       </h1>
       <div className="text-center mt-20">
-        <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-orange-300 to-purple-500">
+        <h1 className="text-4xl md:text-6xl font-bold text-purple-500">
           <Typewriter
             words={['Aspiring Fullstack Developer.', 'In the pursuit of constant improvement.']}
             loop={true}
@@ -68,6 +70,7 @@ const Hero = () => {
         </h1>
       </div>
     </section>
+    </AuroraBackground>
 
   )
 }
