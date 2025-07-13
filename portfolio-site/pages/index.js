@@ -67,16 +67,14 @@ const Hero = () => {
 
   useEffect(() => {
     // Only runs on client
-    setIsMobile(window.innerWidth < 640);
-
-    // Optional: update on resize
+    setIsMobile(typeof window !== 'undefined' && window.innerWidth < 640);
     const handleResize = () => setIsMobile(window.innerWidth < 640);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
-    <AuroraBackground>
+    <AuroraBackground isMobile={isMobile}>
       <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 text-purple-600 font-michroma">
         <LogoTilt className="w-16 h-16 text-purple-400 md:w-25 md:h-25" />
         <h1 className="text-3xl md:text-6xl font-bold text-white mt-5">
@@ -84,15 +82,20 @@ const Hero = () => {
         </h1>
         <div className="text-center mt-10 md:mt-20">
           <h1 className="text-xl md:text-6xl font-bold text-purple-500">
-            <Typewriter
-              words={['Aspiring Fullstack Developer.', 'In the pursuit of greatness.']}
-              loop={true}
-              cursor
-              cursorStyle="|"
-              typeSpeed={isMobile ? 20 : 50}
-              deleteSpeed={isMobile ? 20 : 50}
-              delaySpeed={isMobile ? 800 : 1500}
-            />
+            {isMobile
+              ? 'Aspiring Fullstack Developer.'
+              : (
+                <Typewriter
+                  words={['Aspiring Fullstack Developer.', 'In the pursuit of greatness.']}
+                  loop={true}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={50}
+                  deleteSpeed={50}
+                  delaySpeed={1500}
+                />
+              )
+            }
           </h1>
         </div>
       </section>
