@@ -2,9 +2,8 @@ import LogoTilt from '@/public/logo-tilt.jsx';
 import { Typewriter } from 'react-simple-typewriter';
 import { AuroraBackground } from '@/components/ui/aurora-background';
 import { TechStack } from '@/components/tech-stack';
-
-
 import { motion } from 'framer-motion'
+import { useEffect, useState} from 'react';
 
 const cardVariants = {
   hidden: { opacity: 0 },
@@ -62,30 +61,65 @@ const Header = () => {
   )
 }
 
-const Hero = () => {
+
+const MobileComponent = () => {
   return (
-    <AuroraBackground>
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 text-purple-600 font-michroma">
+    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 text-purple-600 font-michroma bg-gradient-to-b from-cyan-700 via-gray-800 to-black">
       <LogoTilt className="w-25 h-25 text-purple-400" />
       <h1 className="text-4xl md:text-6xl font-bold text-white mt-5">
         Emre Atasavun
       </h1>
       <div className="text-center mt-20">
-        <h1 className="text-4xl md:text-6xl font-bold text-purple-500">
-          <Typewriter
-            words={['Aspiring Fullstack Developer.', 'In the pursuit of greatness.']}
-            loop={true}
-            cursor
-            cursorStyle="|"
-            typeSpeed={50}
-            deleteSpeed={50}
-            delaySpeed={1500}
-          />
-        </h1>
+        <h1 className="text-4xl md:text-6xl font-bold text-purple-500">Aspiring Fullstack Developer.</h1>
       </div>
     </section>
-    </AuroraBackground>
+  )
+}
 
+const DesktopComponent = () => {
+  return (
+    <AuroraBackground>
+      <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 text-purple-600 font-michroma">
+        <LogoTilt className="w-25 h-25 text-purple-400" />
+        <h1 className="text-4xl md:text-6xl font-bold text-white mt-5">
+          Emre Atasavun
+        </h1>
+        <div className="text-center mt-20">
+          <h1 className="text-4xl md:text-6xl font-bold text-purple-500">
+            <Typewriter
+              words={['Aspiring Fullstack Developer.', 'In the pursuit of greatness.']}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={50}
+              deleteSpeed={50}
+              delaySpeed={1500}
+            />
+          </h1>
+        </div>
+      </section>
+    </AuroraBackground>
+  )
+}
+
+const Hero = () => {
+  
+
+  const useIsMobile = (breakpoint = 768) => {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+      const checkMobile = () => setIsMobile(window.innerWidth < breakpoint);
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }, [breakpoint]);
+
+    return isMobile;
+  }
+  const isMobile = useIsMobile();
+  return (
+    <>
+    {isMobile ? <MobileComponent /> : <DesktopComponent />}
+    </>
   )
 }
 
