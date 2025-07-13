@@ -140,14 +140,14 @@
   font-family: 'Michroma';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/Michroma-Regular.ttf') format('truetype');
+  src: url('@/public/fonts/Michroma-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Turretroad';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/turretRoad/TurretRoad-Regular.ttf') format('truetype');
+  src: url('@/public/fonts/turretRoad/TurretRoad-Regular.ttf') format('truetype');
 }
 
 @theme {
