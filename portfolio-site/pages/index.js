@@ -2,7 +2,7 @@ import LogoTilt from '@/public/logo-tilt.jsx';
 import { Typewriter } from 'react-simple-typewriter';
 import { AuroraBackground } from '@/components/ui/aurora-background';
 import { TechStack } from '@/components/tech-stack';
-
+import { useEffect, useState } from 'react';
 
 import { motion } from 'framer-motion'
 
@@ -63,33 +63,53 @@ const Header = () => {
 }
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Only runs on client
+    setIsMobile(window.innerWidth < 640);
+
+    // Optional: update on resize
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <AuroraBackground>
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 text-purple-600 font-michroma">
-      <LogoTilt className="w-25 h-25 text-purple-400" />
-      <h1 className="text-4xl md:text-6xl font-bold text-white mt-5">
-        Emre Atasavun
-      </h1>
-      <div className="text-center mt-20">
-        <h1 className="text-4xl md:text-6xl font-bold text-purple-500">
-          <Typewriter
-            words={['Aspiring Fullstack Developer.', 'In the pursuit of greatness.']}
-            loop={true}
-            cursor
-            cursorStyle="|"
-            typeSpeed={50}
-            deleteSpeed={50}
-            delaySpeed={1500}
-          />
+      <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 text-purple-600 font-michroma">
+        <LogoTilt className="w-16 h-16 text-purple-400 md:w-25 md:h-25" />
+        <h1 className="text-3xl md:text-6xl font-bold text-white mt-5">
+          Emre Atasavun
         </h1>
-      </div>
-    </section>
+        <div className="text-center mt-10 md:mt-20">
+          <h1 className="text-xl md:text-6xl font-bold text-purple-500">
+            <Typewriter
+              words={['Aspiring Fullstack Developer.', 'In the pursuit of greatness.']}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={isMobile ? 20 : 50}
+              deleteSpeed={isMobile ? 20 : 50}
+              delaySpeed={isMobile ? 800 : 1500}
+            />
+          </h1>
+        </div>
+      </section>
     </AuroraBackground>
-
   )
 }
 
 const AboutMe = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(typeof window !== 'undefined' && window.innerWidth < 640);
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const cards = [
     {
       title: 'Learning',
@@ -103,19 +123,17 @@ const AboutMe = () => {
       title: 'Meaningful Design',
       desc: 'Design should not just be about aesthetics, but about creating a meaningful experience. Every pixel has a purpose.',
     },
-  ]
+  ];
 
   return (
-    <section id="about" className="w-full px-4 py-20 md:py-32 text-white">
+    <section id="about" className="w-full px-2 py-10 md:py-32 text-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold mb-10 text-center text-purple-400 font-michroma">About Me</h2>
-
-        <p className="text-lg md:text-xl leading-relaxed text-gray-300 text-center max-w-3xl mx-auto mb-12 font-turret">
+        <h2 className="text-2xl md:text-5xl font-bold mb-6 md:mb-10 text-center text-purple-400 font-michroma">About Me</h2>
+        <p className="text-base md:text-xl leading-relaxed text-gray-300 text-center max-w-3xl mx-auto mb-8 md:mb-12 font-turret">
           I&apos;m a <span className="text-purple-400 font-semibold">full-stack developer</span> who believes in simplicity, clarity, and steady progress.
           Every project is an opportunity to learn, iterate, and grow.
         </p>
-
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {cards.map((card, i) => (
             <motion.div
               key={i}
@@ -124,31 +142,29 @@ const AboutMe = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={cardVariants}
-              whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(128, 90, 213, 0.4)' }}
+              whileHover={isMobile ? {} : { scale: 1.02, boxShadow: '0 0 20px rgba(128, 90, 213, 0.4)' }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="bg-gray-800/60 backdrop-blur-lg p-6 rounded-2xl border border-gray-700"
+              className="bg-gray-800/60 backdrop-blur-lg p-4 md:p-6 rounded-xl md:rounded-2xl border border-gray-700"
             >
-
-              <h3 className="font-michroma text-xl font-semibold text-purple-500 mb-2">{card.title}</h3>
-              <p className="font-turret text-xl text-gray-300">{card.desc}</p>
+              <h3 className="font-michroma text-lg md:text-xl font-semibold text-purple-500 mb-2">{card.title}</h3>
+              <p className="font-turret text-base md:text-xl text-gray-300">{card.desc}</p>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 const Contact = () => {
   return (
-    <section id="contact" className="w-full px-4 py-20 md:py-32 text-white">
+    <section id="contact" className="w-full px-2 py-10 md:py-32 text-white">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="font-michroma text-3xl md:text-5xl font-bold text-purple-400 mb-6">Let&apos;s get to it!</h2>
-        <p className="font-turret text-xl text-gray-300 mb-10">
+        <h2 className="font-michroma text-2xl md:text-5xl font-bold text-purple-400 mb-4 md:mb-6">Let&apos;s get to it!</h2>
+        <p className="font-turret text-base md:text-xl text-gray-300 mb-6 md:mb-10">
           A project, a question or a simple hello? I&apos;m always open to new experiences and connections.
         </p>
-
-        <div className="flex justify-center gap-6 flex-wrap">
+        <div className="flex justify-center gap-4 md:gap-6 flex-wrap">
           {/* GitHub */}
           <a
             href="https://github.com/fridgemann"
