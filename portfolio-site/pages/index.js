@@ -64,7 +64,7 @@ const Header = () => {
 
 const MobileComponent = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 text-purple-600 font-michroma bg-gradient-to-b from-cyan-700 via-gray-800 to-black">
+    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 text-purple-600 font-michroma bg-gradient-to-r from-gray-950 via-blue-700 to-gray-950">
       <LogoTilt className="w-25 h-25 text-purple-400" />
       <h1 className="text-4xl md:text-6xl font-bold text-white mt-5">
         Emre Atasavun
@@ -248,7 +248,7 @@ export default function Home() {
       <Header />
       <Hero />
       <div className="h-1 w-full bg-gradient-to-r from-purple-600 via-purple-800 to-purple-600 blur-sm"></div>
-      <div className='bg-gradient-to-b from-gray-800 via-gray-900 to-black'>
+      <div className='bg-gradient-to-r from-gray-950 via-blue-900 to-gray-950'>
         <AboutMe />
         <TechStack />
         <Contact />
