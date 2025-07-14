@@ -102,26 +102,28 @@ const DesktopComponent = () => {
   )
 }
 
+const useIsMobile = (breakpoint = 768) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < breakpoint);
+    checkMobile(); // run once on mount
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, [breakpoint]);
+
+  return isMobile;
+};
+
 const Hero = () => {
-  
-
-  const useIsMobile = (breakpoint = 768) => {
-    const [isMobile, setIsMobile] = useState(false);
-    useEffect(() => {
-      const checkMobile = () => setIsMobile(window.innerWidth < breakpoint);
-      window.addEventListener('resize', checkMobile);
-      return () => window.removeEventListener('resize', checkMobile);
-    }, [breakpoint]);
-
-    return isMobile;
-  }
   const isMobile = useIsMobile();
+
   return (
     <>
-    {isMobile ? <MobileComponent /> : <DesktopComponent />}
+      {isMobile ? <MobileComponent /> : <DesktopComponent />}
     </>
-  )
-}
+  );
+};
 
 const AboutMe = () => {
   const cards = [
