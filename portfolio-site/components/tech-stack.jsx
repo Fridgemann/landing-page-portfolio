@@ -50,7 +50,7 @@ export const TechStack = () => {
               <img
                 src={tech.icon}
                 alt={tech.name}
-                className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 transition-transform duration-300 group-hover:scale-110"
+                className="bg-white p-2 border rounded-xl w-12 h-12 sm:w-12 sm:h-12 md:w-14 md:h-14 transition-transform duration-300 group-hover:scale-110"
               />
               <p className="font-michroma text-sm sm:text-base">{tech.name}</p>
             </motion.div>
