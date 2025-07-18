@@ -3,7 +3,10 @@ import { Typewriter } from 'react-simple-typewriter';
 import { AuroraBackground } from '@/components/ui/aurora-background';
 import { TechStack } from '@/components/tech-stack';
 import { motion } from 'framer-motion'
-import { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
+
+
 
 const cardVariants = {
   hidden: { opacity: 0 },
@@ -19,45 +22,45 @@ const cardVariants = {
 
 const Header = () => {
   return (
-  <div className='sticky top-0 z-50 bg-black bg-opacity-80 backdrop-blur-md font-michroma'>
-    <div className="flex p-4 justify-between bg-black">
-      <div className="gap-2.5 flex items-center">
-        <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="bg-gradient-to-r from-purple-500 via-blue-500 to-purple-300 bg-clip-text text-transparent text-xl px-0.5 py-1.5 font-bol sm:text-2xl md:3xl hover:cursor-pointer">
-          Emre Atasavun
+    <div className='sticky top-0 z-50 bg-black bg-opacity-80 backdrop-blur-md font-michroma'>
+      <div className="flex p-4 justify-between bg-black">
+        <div className="gap-2.5 flex items-center">
+          <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="bg-gradient-to-r from-purple-500 via-blue-500 to-purple-300 bg-clip-text text-transparent text-xl px-0.5 py-1.5 font-bol sm:text-2xl md:3xl hover:cursor-pointer">
+            Emre Atasavun
+          </div>
         </div>
+
+        <ul className="hidden md:flex text-white gap-2.5 items-center">
+          <div
+            className="group p-[2px] rounded-2xl bg-gradient-to-r from-purple-600 via-purple-400 to-blue-500 transition-all duration-500"
+            style={{
+              backgroundSize: '200% 200%',
+              backgroundPosition: '0% 50%',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundPosition = '100% 50%')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundPosition = '0% 50%')}
+          >
+            <li onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })} className="text-xl bg-black text-white rounded-2xl px-4 py-2 flex justify-center items-center w-full h-full hover:cursor-pointer">
+              Who am I?
+            </li>
+          </div>
+          <div
+            className="group p-[2px] rounded-2xl bg-gradient-to-r from-purple-600 via-purple-400 to-blue-500 transition-all duration-500"
+            style={{
+              backgroundSize: '200% 200%',
+              backgroundPosition: '0% 50%',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundPosition = '100% 50%')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundPosition = '0% 50%')}
+          >
+            <li onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })} className="text-xl bg-black text-white rounded-2xl px-4 py-2 flex justify-center items-center w-full h-full hover:cursor-pointer">
+              Say hello!
+            </li>
+          </div>
+        </ul>
+
       </div>
-
-      <ul className="hidden md:flex text-white gap-2.5 items-center">
-        <div
-          className="group p-[2px] rounded-2xl bg-gradient-to-r from-purple-600 via-purple-400 to-blue-500 transition-all duration-500"
-          style={{
-            backgroundSize: '200% 200%',
-            backgroundPosition: '0% 50%',
-          }}
-          onMouseEnter={e => (e.currentTarget.style.backgroundPosition = '100% 50%')}
-          onMouseLeave={e => (e.currentTarget.style.backgroundPosition = '0% 50%')}
-        >
-          <li onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })} className="text-xl bg-black text-white rounded-2xl px-4 py-2 flex justify-center items-center w-full h-full hover:cursor-pointer">
-            Who am I?
-          </li>
-        </div>
-        <div
-          className="group p-[2px] rounded-2xl bg-gradient-to-r from-purple-600 via-purple-400 to-blue-500 transition-all duration-500"
-          style={{
-            backgroundSize: '200% 200%',
-            backgroundPosition: '0% 50%',
-          }}
-          onMouseEnter={e => (e.currentTarget.style.backgroundPosition = '100% 50%')}
-          onMouseLeave={e => (e.currentTarget.style.backgroundPosition = '0% 50%')}
-        >
-          <li onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })} className="text-xl bg-black text-white rounded-2xl px-4 py-2 flex justify-center items-center w-full h-full hover:cursor-pointer">
-            Say hello!
-          </li>
-        </div>
-      </ul>
-
     </div>
-  </div>
   )
 }
 
@@ -244,7 +247,24 @@ const Contact = () => {
 
 export default function Home() {
   return (
-    <div>
+    <>
+      <Head>
+        <title>Emre Atasavun - Fullstack Developer</title>
+        <meta name="description" content="I'm a full-stack developer who enjoys building clean, scalable apps with Next.js, Node.js, and PostgreSQL. Passionate about clarity, iteration, and growth." />
+        <meta name="google-site-verification" content="imR-XgAaKN6jqTjTVRkDYIj4bUy47COs8ZQCQ5UXQEM" />
+        <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="favicon.ico" type="image/x-icon" />
+
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Emre Atasavun – Fullstack Developer" />
+        <meta
+          property="og:description"
+          content="I build clean, scalable full-stack apps with Next.js, Node.js, and PostgreSQL."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://emreatasavun.com" />
+      </Head>
       <Header />
       <Hero />
       <div className="h-1 w-full bg-gradient-to-r from-purple-600 via-purple-800 to-purple-600 blur-sm"></div>
@@ -253,6 +273,6 @@ export default function Home() {
         <TechStack />
         <Contact />
       </div>
-    </div>
+    </>
   )
 }
