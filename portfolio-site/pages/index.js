@@ -67,15 +67,18 @@ const Header = () => {
 
 const MobileComponent = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 text-purple-600 font-michroma bg-gradient-to-r from-gray-950 via-blue-700 to-gray-950">
-      <LogoTilt className="w-25 h-25 text-purple-400" />
-      <h1 className="text-4xl md:text-6xl font-bold text-white mt-5">
-        Emre Atasavun
-      </h1>
-      <div className="text-center mt-20">
-        <h1 className="text-4xl md:text-6xl font-bold text-purple-500">Aspiring Fullstack Developer.</h1>
-      </div>
-    </section>
+    <div className="bg-[url('/topography.png')] bg-repeat bg-center bg-fixed sm:bg-none">
+      <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 text-purple-600 font-michroma">
+        <LogoTilt className="w-25 h-25 text-purple-400" />
+        <h1 className="text-4xl md:text-6xl font-bold text-black mt-5">
+          Emre Atasavun
+        </h1>
+        <div className="text-center mt-20">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">Aspiring Fullstack Developer.</h1>
+        </div>
+      </section>
+    </div>
+
   )
 }
 
@@ -88,7 +91,7 @@ const DesktopComponent = () => {
           Emre Atasavun
         </h1>
         <div className="text-center mt-20">
-          <h1 className="text-4xl md:text-6xl font-bold text-purple-500">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-800">
             <Typewriter
               words={['Aspiring Fullstack Developer.', 'In the pursuit of greatness.']}
               loop={true}
@@ -163,13 +166,13 @@ const AboutMe = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={cardVariants}
-              whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(128, 90, 213, 0.4)' }}
+              whileHover={{ scale: 1.02 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="bg-gray-800/60 backdrop-blur-lg p-6 rounded-2xl border border-gray-700"
+              className="bg-zinc-300 backdrop-blur-lg p-6 rounded-2xl"
             >
 
               <h3 className="font-michroma text-xl font-semibold text-purple-500 mb-2">{card.title}</h3>
-              <p className="font-turret text-xl text-gray-300">{card.desc}</p>
+              <p className="font-turret text-xl text-neutral-800">{card.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -267,8 +270,7 @@ export default function Home() {
       </Head>
       <Header />
       <Hero />
-      <div className="h-1 w-full bg-gradient-to-r from-purple-600 via-purple-800 to-purple-600 blur-sm"></div>
-      <div className='bg-gradient-to-r from-gray-950 via-blue-900 to-gray-950'>
+      <div className='bg-slate-900'>
         <AboutMe />
         <TechStack />
         <Contact />
