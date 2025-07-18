@@ -38,21 +38,21 @@ export const TechStack = () => {
           {techStack.map((tech, i) => (
             <motion.div
               key={tech.name}
-              className="bg-gray-800/60 backdrop-blur-lg p-6 rounded-2xl border border-gray-700 flex flex-col items-center justify-center gap-4"
+              className="bg-zinc-300 backdrop-blur-lg p-6 rounded-2xl flex flex-col items-center justify-center gap-4"
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               custom={i}
-              whileHover= {{scale: 1.02, boxShadow: '0 0 20px rgba(128, 90, 213, 0.4)'}}
+              whileHover= {{ scale: 1.02 }}
               transition={ {  type: 'spring', stiffness: 300, damping: 20, } }
             >
               <img
                 src={tech.icon}
                 alt={tech.name}
-                className="bg-white p-2 border rounded-xl w-12 h-12 sm:w-12 sm:h-12 md:w-14 md:h-14 transition-transform duration-300 group-hover:scale-110"
+                className="p-2 w-14 h-14 sm:w-12 sm:h-12 md:w-20 md:h-20 transition-transform duration-300 group-hover:scale-110"
               />
-              <p className="font-michroma text-sm sm:text-base">{tech.name}</p>
+              <p className="text-black font-michroma text-sm sm:text-base">{tech.name}</p>
             </motion.div>
           ))}
 
